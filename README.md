@@ -9,6 +9,10 @@ python course-info.py <Course Code>
 
 
 # Dependencies
+## pip (for installing libraries)
+```
+easy_install pip  
+```
 ## Selenium Webdriver
 ```
 pip install selenium
@@ -17,6 +21,5 @@ I included the chromedriver in the repo for convenience.
 
 ## BeautifulSoup
 ```
-easy_install pip  
 pip install BeautifulSoup4
 ```
