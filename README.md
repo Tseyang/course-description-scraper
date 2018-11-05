@@ -5,7 +5,7 @@ Just a derivative of other scripts that scrape Portal, it allows you to get cour
 ```
 python course-info.py <Course Code> [Campus]
 ```
-*Course Code* should be without campus or section e.g. "CSCI140" or "MATH131" or "PSYC189K".
+*Course Code* should be without campus or section e.g. "CSCI140" or "MATH131" or "PSYC189K". Certain course codes might use a space in between the faculty and course number i.e. enter into terminal as "Lit\ 99A"
 *Campus* is optional and should be in the shortform that portal uses i.e. "HM", "CM", "SC", "PZ", "PO" or "CGU". Will search all campuses if left blank.
 
 # Dependencies
