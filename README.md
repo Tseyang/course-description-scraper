@@ -22,4 +22,5 @@ I included the chromedriver in the repo for convenience.
 ## BeautifulSoup
 ```
 pip install BeautifulSoup4
+pip install lxml
 ```
