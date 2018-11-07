@@ -1,5 +1,7 @@
 """
 Author: Tse Yang Lim
+
+Inspiration from HyperScheduler's usage of selenium webdriver
 """
 
 import sys
@@ -12,7 +14,6 @@ import json
 import re
 
 # Globals/Parameters
-current_term = "FA"
 portal_URL = ("https://portal.hmc.edu/ICS/Portal_Homepage.jnz?"
         "portlet=Course_Schedules&screen=Advanced+Course+Search"
         "&screenType=next")
@@ -46,8 +47,8 @@ def get_portal_html(browser, target, campus):
     for term_name in term_names:
         match = re.match(r"\s*(FA|SP)\s*([0-9]{4})\s*", term_name)
         if match:
-            fall_or_spring, year_str = match.groups()
-            terms.append((int(year_str), fall_or_spring == current_term, term_name))
+            FA_or_SP, year_str = match.groups()
+            terms.append((int(year_str), term_name))
 
     if not terms:
         raise ScrapeError("couldn't parse any term names (from: {})".format(repr(term_names)))
@@ -55,7 +56,7 @@ def get_portal_html(browser, target, campus):
     most_recent_term = max(terms)
 
     # actually select the term in the dropdown
-    term_dropdown.select_by_visible_text(most_recent_term[2])
+    term_dropdown.select_by_visible_text(most_recent_term[1])
 
     # add campus if given
     if campus:
